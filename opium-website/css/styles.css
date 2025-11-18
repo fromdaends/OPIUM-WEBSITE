@@ -1,0 +1,225 @@
+:root{
+  --bg: #000;
+  --fg: #fff;
+  --muted: rgba(255,255,255,0.12);
+  --accent: #e6e6e6;
+  --font-display: "Anton", "Oswald", Impact, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --radius: 4px;
+}
+
+/* Box sizing */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Base */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  scroll-behavior: smooth;
+  /* if you want snap: uncomment next line */
+  /* scroll-snap-type: y mandatory; */
+}
+
+/* FULL-SCREEN LOGO SPLASH */
+.splash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;            /* occupy first viewport so user must scroll */
+  width: 100%;
+  background: var(--bg, #000);
+  text-decoration: none;    /* because this is an <a> */
+  scroll-snap-align: start; /* optional: for snap behavior */
+}
+.splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* logo image (use the image in /assets) */
+.splash .logo,
+.splash > img.logo {
+  width: min(420px, 60vw);
+  max-width: 90%;
+  height: auto;
+  display: block;
+  filter: contrast(120%) brightness(1);
+  cursor: pointer;
+}
+
+/* Ensure main sits after splash and optionally snaps into view */
+main {
+  min-height: 100vh;
+  padding: 3rem 1.25rem;
+  background: var(--bg, #000);
+  color: var(--fg, #fff);
+  scroll-snap-align: start; /* optional */
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  margin: .2rem 0 .8rem 0;
+}
+p { color: rgba(255,255,255,0.92); max-width: 70ch; }
+
+/* simple nav & button styles */
+nav { display:flex; gap:1rem; align-items:center; }
+a, .btn { color: var(--fg); text-decoration: none; }
+.btn {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: transparent;
+  padding: .45rem .75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+/* member list: replace bullets with opiumstar image (assets folder) */
+ul.members { list-style: none; padding: 0; margin: 0; }
+ul.members li {
+  position: relative;
+  padding-left: 1.9rem;
+  margin-bottom: .5rem;
+}
+ul.members li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.1rem;
+  height: 1.1rem;
+  background: url("../assets/opiumstar.png") no-repeat center/contain;
+  pointer-events: none;
+}
+
+/* small helpers */
+.meta { color: rgba(255,255,255,0.6); font-size: .9rem; }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .splash { transition: none; }
+  .logo, .btn { transition: none; }
+}
+
+/* responsive tweaks */
+@media (max-width: 720px) {
+  .splash .logo { max-width: 70vw; }
+  main { padding: 2rem 1rem; }
+}
+
+/* centered background section (appears after the splash, inside <main>) */
+.center-bg {
+  position: relative;
+  background-color: var(--bg);
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.center-bg .center-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+}
+.center-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2;
+  pointer-events: none;
+}
+.center-bg .center-inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--fg);
+}
+.center-bg .content {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+.center-bg .content h2 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  margin: 0 0 .4rem;
+  letter-spacing: .6px;
+}
+.center-bg .content p,
+.center-bg .content .lead,
+p.lead {
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  font-weight: 700;
+  margin: 0;
+  max-width: 60ch;
+  line-height: 1.2;
+}
+.center-bg .content p.lead {
+  font-family: Impact, "Haettenschweiler", "Arial Black", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  letter-spacing: .4px;
+}
+/* smaller screens */
+@media (max-width: 720px) {
+  .center-bg { height: 80vh; }
+  .center-bg .center-inner { padding: .75rem; }
+}
+
+/* ensure the rest of the page stays the same black */
+main { background-color: var(--bg); }
+
+.horizontal-list {
+  display: flex;
+  flex-direction: row;
+  gap: .75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vertical-column {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.wrap-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.artist-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
