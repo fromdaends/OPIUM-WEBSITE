@@ -73,8 +73,6 @@ main {
 
 /* Ensure articles are tall enough for scrolling */
 article {
-  display: flex; /* Align album photo and text side by side */
-  align-items: center; /* Center align the text vertically */
   min-height: 100vh; /* Each article takes up full viewport height */
   padding: 2rem; /* Add some padding for better visibility */
   scroll-margin-top: 2rem; /* Ensure proper alignment when scrolled to */
@@ -92,6 +90,7 @@ article h3 {
 article img {
   width: 600px; /* Increase the width of album photos */
   height: auto; /* Maintain aspect ratio */
+  float: left; /* Align photos to the left side */
   margin-right: 1rem; /* Add spacing between the photo and text */
 }
 
