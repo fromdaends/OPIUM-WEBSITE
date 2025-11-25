@@ -265,3 +265,7 @@ section > h1 {
   text-align: center; /* Center-align the title */
   font-size: 3rem; /* Increase the font size */
 }
+
+#pc img, #kc img {
+  margin-right: 1.5rem; /* Add spacing specifically between Carti and Ken Carson photos */
+}
