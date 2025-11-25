@@ -88,7 +88,7 @@ article h3 {
 
 /* Adjust member photos to be slightly smaller and align to the left */
 article img {
-  width: 600px; /* Increase width for album photos */
+  width: 300px; /* Slightly smaller width for the photos */
   height: auto; /* Maintain aspect ratio */
   float: left; /* Align photos to the left side */
   margin-right: 1rem; /* Add spacing between the photo and text */
@@ -96,19 +96,7 @@ article img {
 
 /* Adjust spacing between albums */
 section > article {
-  display: flex; /* Align album photo and description side by side */
-  align-items: center; /* Center align the content */
-  margin-bottom: 0.5rem; /* Reduce spacing between albums */
-}
-
-section > article img {
-  width: 600px; /* Increase width for album photos */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 1rem; /* Add spacing between the photo and text */
-}
-
-section > article p {
-  font-size: 1.2rem; /* Make the text larger */
+  margin-bottom: 0.2rem; /* Further reduce spacing between albums */
 }
 
 /* Typography */
