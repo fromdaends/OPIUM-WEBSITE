@@ -88,7 +88,7 @@ article h3 {
 
 /* Adjust member photos to be slightly smaller and align to the left */
 article img {
-  width: 600px; /* Increase the width of album photos */
+  width: 300px; /* Slightly smaller width for the photos */
   height: auto; /* Maintain aspect ratio */
   float: left; /* Align photos to the left side */
   margin-right: 1rem; /* Add spacing between the photo and text */
