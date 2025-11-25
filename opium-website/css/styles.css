@@ -1,29 +1,25 @@
-:root{
+:root {
   --bg: #000;
   --fg: #fff;
-  --muted: rgba(255,255,255,0.12);
+  --muted: rgba(255, 255, 255, 0.12);
   --accent: #e6e6e6;
   --font-display: "Anton", "Oswald", Impact, sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   --radius: 4px;
 }
 
-/* Box sizing */
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-/* Base */
 html, body {
   height: 100%;
   margin: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.4;
   scroll-behavior: smooth;
-  /* if you want snap: uncomment next line */
-  /* scroll-snap-type: y mandatory; */
 }
 
 /* FULL-SCREEN LOGO SPLASH */
@@ -47,7 +43,6 @@ html, body {
 .splash .logo,
 .splash > img.logo {
   width: min(420px, 60vw);
-  max-width: 90%;
   height: auto;
   display: block;
   filter: contrast(120%) brightness(1);
@@ -75,7 +70,6 @@ main {
 article {
   min-height: 100vh; /* Each article takes up full viewport height */
   padding: 2rem; /* Add some padding for better visibility */
-  scroll-margin-top: 2rem; /* Ensure proper alignment when scrolled to */
   margin-bottom: 0; /* Remove extra spacing between sections */
 }
 
