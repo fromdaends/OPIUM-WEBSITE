@@ -266,9 +266,6 @@ section > h1 {
   font-size: 3rem; /* Increase the font size */
 }
 
-#pc img {
-  margin-right: 2rem; /* Increase spacing for Carti photo */
-}
-#kc img {
-  margin-left: 2rem; /* Add spacing for Ken Carson photo */
+#pc img, #kc img {
+  margin-right: 1.5rem; /* Add spacing specifically between Carti and Ken Carson photos */
 }
