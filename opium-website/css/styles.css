@@ -96,7 +96,19 @@ article img {
 
 /* Adjust spacing between albums */
 section > article {
-  margin-bottom: 0.2rem; /* Further reduce spacing between albums */
+  display: flex; /* Align album photo and description side by side */
+  align-items: center; /* Center align the content */
+  margin-bottom: 0.5rem; /* Reduce spacing between albums */
+}
+
+section > article img {
+  width: 600px; /* Increase width for album photos */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 1rem; /* Add spacing between the photo and text */
+}
+
+section > article p {
+  font-size: 1.2rem; /* Make the text larger */
 }
 
 /* Typography */
