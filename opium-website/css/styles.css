@@ -63,6 +63,13 @@ main {
   scroll-snap-align: start; /* optional */
 }
 
+/* Ensure articles are tall enough for scrolling */
+article {
+  min-height: 100vh; /* Each article takes up full viewport height */
+  padding: 2rem; /* Add some padding for better visibility */
+  scroll-margin-top: 2rem; /* Ensure proper alignment when scrolled to */
+}
+
 /* Typography */
 h1, h2, h3 {
   font-family: var(--font-display);
