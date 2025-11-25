@@ -76,6 +76,7 @@ article {
   min-height: 100vh; /* Each article takes up full viewport height */
   padding: 2rem; /* Add some padding for better visibility */
   scroll-margin-top: 2rem; /* Ensure proper alignment when scrolled to */
+  margin-bottom: 0; /* Remove extra spacing between sections */
 }
 
 /* Align member names to the left */
