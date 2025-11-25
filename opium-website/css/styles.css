@@ -70,6 +70,17 @@ article {
   scroll-margin-top: 2rem; /* Ensure proper alignment when scrolled to */
 }
 
+/* Make member names larger */
+article h3 {
+  font-size: 2rem; /* Adjust size to make names more prominent */
+  text-align: center; /* Center-align the names */
+}
+
+/* Make member photos clickable */
+article img {
+  cursor: pointer; /* Indicate that the image is clickable */
+}
+
 /* Typography */
 h1, h2, h3 {
   font-family: var(--font-display);
