@@ -74,10 +74,15 @@ article {
 article h3 {
   text-align: left; /* Align names to the left side of the page */
   margin-left: 1rem; /* Add some spacing from the edge */
+  font-size: 2.5rem; /* Increase the font size for titles */
 }
 
-/* Make member photos clickable */
+/* Adjust member photos to be smaller */
 article img {
+  width: 200px; /* Set a smaller width for the photos */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the photos */
   cursor: pointer; /* Indicate that the image is clickable */
 }
 
