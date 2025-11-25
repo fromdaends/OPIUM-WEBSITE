@@ -8,12 +8,10 @@
   --radius: 4px;
 }
 
-/* Apply box-sizing to all elements for consistent sizing */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* Set up the base styles for the page */
 html, body {
   height: 100%;
   margin: 0;
@@ -24,95 +22,104 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* Full-screen splash section for the logo */
+/* FULL-SCREEN LOGO SPLASH */
 .splash {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100vh;            /* occupy first viewport so user must scroll */
   width: 100%;
-  background: var(--bg);
+  background: var(--bg, #000);
+  text-decoration: none;    /* because this is an <a> */
+  scroll-snap-align: start; /* optional: for snap behavior */
+}
+.splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-/* Style for the logo inside the splash section */
-.splash .logo {
+/* logo image (use the image in /assets) */
+.splash .logo,
+.splash > img.logo {
   width: min(420px, 60vw);
   height: auto;
   display: block;
+  filter: contrast(120%) brightness(1);
+  cursor: pointer;
 }
 
-/* Smaller logo for other pages */
+/* Smaller logo for member pages */
 .logo-small {
-  width: 150px;
-  height: auto;
+  width: 150px; /* Smaller width for less emphasis */
+  height: auto; /* Maintain aspect ratio */
   display: block;
-  margin: 1rem auto;
+  margin: 1rem auto; /* Center the logo with spacing */
 }
 
-/* Main content area styles */
+/* Ensure main sits after splash and optionally snaps into view */
 main {
   min-height: 100vh;
   padding: 3rem 1.25rem;
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--bg, #000);
+  color: var(--fg, #fff);
+  scroll-snap-align: start; /* optional */
 }
 
-/* Ensure each article takes up the full viewport height */
+/* Ensure articles are tall enough for scrolling */
 article {
-  min-height: 100vh;
-  padding: 2rem;
-  margin-bottom: 0;
+  min-height: 100vh; /* Each article takes up full viewport height */
+  padding: 2rem; /* Add some padding for better visibility */
+  margin-bottom: 0; /* Remove extra spacing between sections */
 }
 
-/* Style for article titles */
+/* Align member names to the left */
 article h3 {
-  text-align: left;
-  margin-left: 1rem;
-  font-size: 2.5rem;
+  text-align: left; /* Align names to the left side of the page */
+  margin-left: 1rem; /* Add some spacing from the edge */
+  font-size: 2.5rem; /* Increase the font size for titles */
 }
 
-/* Style for images inside articles */
+/* Adjust member photos to be slightly smaller and align to the left */
 article img {
-  width: 450px;
-  height: auto;
-  float: left;
-  margin-right: 1.5rem;
+  width: 450px; /* Slightly reduce the size of images on index.html */
+  height: auto; /* Maintain aspect ratio */
+  float: left; /* Ensure text moves to the right of the image */
+  margin-right: 1.5rem; /* Increase spacing between artist photos */
 }
 
-/* Reduce spacing between articles */
+/* Adjust spacing between albums */
 section > article {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.2rem; /* Further reduce spacing between albums */
 }
 
-/* Typography styles for headings */
+/* Typography */
 h1, h2, h3 {
   font-family: var(--font-display);
-  letter-spacing: 0.6px;
+  letter-spacing: .6px;
   text-transform: uppercase;
-  margin: 0.2rem 0 0.8rem;
+  margin: .2rem 0 .8rem 0;
+}
+p { color: rgba(255,255,255,0.92); max-width: 70ch; }
+
+/* simple nav & button styles */
+nav { display:flex; gap:1rem; align-items:center; }
+a, .btn { color: var(--fg); text-decoration: none; }
+.btn {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: transparent;
+  padding: .45rem .75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
 }
 
-/* Paragraph text styles */
-p {
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 70ch;
-}
-
-/* Style for the members list */
-ul.members {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Add custom bullet points for the members list */
+/* member list: replace bullets with opiumstar image (assets folder) */
+ul.members { list-style: none; padding: 0; margin: 0; }
 ul.members li {
   position: relative;
   padding-left: 1.9rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
-
-/* Use a star image as the bullet point */
 ul.members li::before {
   content: "";
   position: absolute;
@@ -122,25 +129,25 @@ ul.members li::before {
   width: 1.1rem;
   height: 1.1rem;
   background: url("../assets/opiumstar.png") no-repeat center/contain;
+  pointer-events: none;
 }
 
-/* Style for metadata text */
-.meta {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
+/* small helpers */
+.meta { color: rgba(255,255,255,0.6); font-size: .9rem; }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .splash { transition: none; }
+  .logo, .btn { transition: none; }
 }
 
-/* Adjust styles for smaller screens */
+/* responsive tweaks */
 @media (max-width: 720px) {
-  .splash .logo {
-    max-width: 70vw;
-  }
-  main {
-    padding: 2rem 1rem;
-  }
+  .splash .logo { max-width: 70vw; }
+  main { padding: 2rem 1rem; }
 }
 
-/* Centered background section for videos */
+/* centered background section (appears after the splash, inside <main>) */
 .center-bg {
   position: relative;
   background-color: var(--bg);
@@ -148,19 +155,26 @@ ul.members li::before {
   width: 100%;
   overflow: hidden;
 }
-
-/* Style for the video inside the centered background */
 .center-bg .center-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
 }
-
-/* Inner content for the centered background */
+.center-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2;
+  pointer-events: none;
+}
 .center-bg .center-inner {
   position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,54 +182,61 @@ ul.members li::before {
   padding: 1rem;
   color: var(--fg);
 }
-
-/* Content styles for the centered background */
 .center-bg .content {
   max-width: 70ch;
   margin: 0 auto;
 }
-
-/* Style for headings inside the centered background */
 .center-bg .content h2 {
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 900;
-  margin: 0 0 0.4rem;
+  margin: 0 0 .4rem;
+  letter-spacing: .6px;
 }
-
-/* Style for paragraphs inside the centered background */
-.center-bg .content p {
+.center-bg .content p,
+.center-bg .content .lead,
+p.lead {
   font-size: clamp(1.25rem, 3vw, 1.8rem);
   font-weight: 700;
   margin: 0;
   max-width: 60ch;
   line-height: 1.2;
 }
+.center-bg .content p.lead {
+  font-family: Impact, "Haettenschweiler", "Arial Black", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  letter-spacing: .4px;
+}
+/* smaller screens */
+@media (max-width: 720px) {
+  .center-bg { height: 80vh; }
+  .center-bg .center-inner { padding: .75rem; }
+}
 
-/* Horizontal list layout */
+/* ensure the rest of the page stays the same black */
+main { background-color: var(--bg); }
+
 .horizontal-list {
   display: flex;
   flex-direction: row;
-  gap: 0.75rem;
+  gap: .75rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Vertical column layout */
 .vertical-column {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: .75rem;
 }
 
-/* Wrap rows for flexible layouts */
 .wrap-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: .75rem;
 }
 
-/* Layout for artist rows */
 .artist-row {
   display: flex;
   justify-content: center;
@@ -225,22 +246,20 @@ ul.members li::before {
   text-align: center;
 }
 
-/* Layout for button rows */
 .button-row {
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: .5rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 /* Center and enlarge the Members section title */
 section > h1 {
-  text-align: center;
-  font-size: 3rem;
+  text-align: center; /* Center-align the title */
+  font-size: 3rem; /* Increase the font size */
 }
 
-/* Add spacing between specific images */
 #pc img, #kc img {
-  margin-right: 1.5rem;
+  margin-right: 1.5rem; /* Add spacing specifically between Carti and Ken Carson photos */
 }
