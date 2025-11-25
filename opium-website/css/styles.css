@@ -93,6 +93,11 @@ article img {
   margin-right: 1rem; /* Add spacing between the photo and text */
 }
 
+/* Adjust spacing between albums */
+section > article {
+  margin-bottom: 1rem; /* Reduce spacing between albums */
+}
+
 /* Typography */
 h1, h2, h3 {
   font-family: var(--font-display);
