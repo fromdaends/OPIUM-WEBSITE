@@ -91,7 +91,7 @@ article img {
   width: 500px; /* Further increase the size of album photos */
   height: auto; /* Maintain aspect ratio */
   float: left; /* Ensure text moves to the right of the image */
-  margin-right: 1rem; /* Add spacing between the photo and text */
+  margin-right: 1.5rem; /* Increase spacing between artist photos */
 }
 
 /* Adjust spacing between albums */
