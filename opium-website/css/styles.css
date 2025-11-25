@@ -54,6 +54,14 @@ html, body {
   cursor: pointer;
 }
 
+/* Smaller logo for member pages */
+.logo-small {
+  width: 150px; /* Smaller width for less emphasis */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 1rem auto; /* Center the logo with spacing */
+}
+
 /* Ensure main sits after splash and optionally snaps into view */
 main {
   min-height: 100vh;
