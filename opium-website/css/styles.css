@@ -70,10 +70,10 @@ article {
   scroll-margin-top: 2rem; /* Ensure proper alignment when scrolled to */
 }
 
-/* Make member names larger */
+/* Align member names to the left */
 article h3 {
-  font-size: 2rem; /* Adjust size to make names more prominent */
-  text-align: center; /* Center-align the names */
+  text-align: left; /* Align names to the left side of the page */
+  margin-left: 1rem; /* Add some spacing from the edge */
 }
 
 /* Make member photos clickable */
@@ -240,4 +240,10 @@ main { background-color: var(--bg); }
   gap: .5rem;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+/* Center and enlarge the Members section title */
+section > h1 {
+  text-align: center; /* Center-align the title */
+  font-size: 3rem; /* Increase the font size */
 }
