@@ -95,7 +95,7 @@ article img {
 
 /* Adjust spacing between albums */
 section > article {
-  margin-bottom: 0.5rem; /* Reduce spacing further between albums */
+  margin-bottom: 0.2rem; /* Further reduce spacing between albums */
 }
 
 /* Typography */
