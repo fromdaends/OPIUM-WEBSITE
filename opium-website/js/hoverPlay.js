@@ -15,7 +15,11 @@ document.querySelectorAll('section > article img').forEach((img) => {
   img.addEventListener('mouseout', () => {
     if (audio) {
       audio.pause();
-      audio.currentTime = 0; // Reset audio to start
+      audio.currentTime = 0; 
     }
   });
 });
+
+
+// Where I found how to make a hoverplay, this code was taken from this link: 
+// https://www.w3schools.com/jsref/met_audio_play.asp#:~:text=The%20play()%20method%20starts,%2C%20attached%20on%20the%20audio).
