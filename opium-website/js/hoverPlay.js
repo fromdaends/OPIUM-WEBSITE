@@ -4,6 +4,10 @@ document.querySelectorAll('section > article img').forEach((img) => {
     "MUSIC.jpg": "../assets/OPMBABI.mp3",
     "SelfTitled.jpg": "../assets/LOCATION.mp3",
     "DieLit.jpg": "../assets/FELLINLUV.mp3",
+    "X.jpeg": "../assets/PDBMH.mp3", // Ken Carson's X album
+    "Xtended.jpeg": "../assets/Ken Carson - Lookbook (Official Audio) 4.mp3", // Ken Carson's Xtended album
+    "AGC.jpeg": "../assets/Ken Carson - ss (Official Audio) 4.mp3", // Ken Carson's A Great Chaos album
+    "MoreChaos.jpeg": "../assets/Ken Carson - Lord Of Chaos (Audio).mp3" // Ken Carson's More Chaos album
   };
 
   const audio = new Audio(audioMap[img.src.split('/').pop()]);
